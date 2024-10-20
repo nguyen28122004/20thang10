@@ -41,7 +41,7 @@
                 <div class="handsCatImgInput">
                     <img src="../image/handsCat.png" alt="">
                 </div>
-                <input type="text" id="inputField" placeholder="Nhập tên..." readonly>
+                <input type="text" id="inputField" placeholder="" readonly>
             </div>
             <div class="buttonLove">
                 <div class="cricleBtn"></div>
@@ -102,7 +102,9 @@
                     </div> -->
                     <div class="textLetter">
                         <h2></h2>
-                        <p class="contentLetter"></p>
+                        <div class="contentLetterWraper">
+                            <p class="contentLetter"></p>
+                        </div>
                         <div class="heartAnimation">
                             <img src="../image/heartAnimation.gif" alt="">
                         </div>
@@ -244,21 +246,26 @@
         clearInterval(timoutTextLetter);
         timoutTextLetter = setInterval(() => {
             textCharLetter();
-        }, 200)
+        }, 50)
     }
 
     // chữ của thư bạn muốn gửi
     let indexTextContent = 0;
     let textLetterContent = document.querySelector('.contentLetter');
     // thay đổi lời chúc
-    const textLetterP = "Địt mẹ m";
+    const textLetterPs = [
+        "Nhân dịp Ngày Phụ nữ Việt Nam 20/10, toàn thể các bạn nam QH2022E-KTQT6 xin gửi đến các bạn những lời chúc tốt đẹp nhất.\nChúc các bạn luôn xinh đẹp, rạng rỡ và tràn đầy sức sống. Hy vọng mỗi ngày đều mang đến cho các bạn niềm vui, hạnh phúc và sự thành công trên con đường mà các bạn đang theo đuổi. Cảm ơn các bạn đã luôn là những người bạn đồng hành tuyệt vời, luôn tỏa sáng không chỉ trong học tập mà còn trong cuộc sống.\nMong rằng chúng ta sẽ tiếp tục xây dựng những kỷ niệm đẹp cùng nhau, và lớp KTQT6 sẽ mãi là nơi gắn kết, sẻ chia và hỗ trợ lẫn nhau.\nMột lần nữa, chúc các bạn một ngày 20/10 thật vui vẻ, ý nghĩa và tràn ngập yêu thương!",
+        "Các bạn nữ yêu quý của lớp KTQT6!\nNgày 20/10 lại đến, các bạn nam trong lớp muốn gửi đến các bạn những lời chúc mừng tốt đẹp nhất. Chúc các bạn luôn mạnh mẽ, tự tin và thành công trong mọi lĩnh vực mà các bạn theo đuổi.\nCảm ơn các bạn vì đã luôn đồng hành, chia sẻ và làm cho lớp chúng ta thêm phần gắn kết. Những nụ cười và sự quan tâm của các bạn đã giúp lớp mình trở nên thật đặc biệt và đáng nhớ. Chúc các bạn luôn rạng ngời và hạnh phúc, không chỉ hôm nay mà cả trong những ngày sắp tới.\nChúng tớ luôn trân trọng và biết ơn các bạn!\nThân thương,\nCác bạn nam lớp KTQT6.",
+        "Gửi các bạn nữ đáng yêu của lớp KTQT6!\nNhân dịp 20/10, chúng mình xin gửi lời chúc chân thành đến tất cả các bạn. Chúc các bạn luôn tươi vui, xinh đẹp và gặt hái nhiều thành công trong học tập cũng như trong cuộc sống. Cảm ơn các bạn vì đã luôn là những người bạn tuyệt vời bên cạnh chúng mình.\nHy vọng các bạn sẽ có một ngày 20/10 thật đáng nhớ và tràn ngập niềm vui!\nTrân trọng,\nCác bạn nam lớp KTQT6.",
+        "Nhân ngày Phụ nữ Việt Nam 20/10, các bạn nam trong lớp xin gửi đến các bạn lời chúc tốt đẹp nhất. Chúng mình mong rằng các bạn sẽ luôn vui vẻ, hạnh phúc và thành công trong mọi khía cạnh của cuộc sống. Mỗi bạn nữ trong lớp đều là một phần quan trọng tạo nên tập thể KTQT6 đoàn kết và vững mạnh.\nCảm ơn các bạn đã luôn cùng chúng mình vượt qua mọi khó khăn, thử thách, cùng nhau tạo nên những kỷ niệm đáng nhớ. Hy vọng rằng các bạn sẽ luôn giữ được nụ cười trên môi và tiếp tục toả sáng trong mọi hoàn cảnh.\nChúc các bạn có một ngày 20/10 thật ý nghĩa và tràn đầy yêu thương!\nThân mến,\nCác bạn nam lớp KTQT6."
+    ];
     let timoutTextLetterContent;
 
     function textCharLetterContent() {
         if (indexTextContent < textLetterP.length) {
             textLetterContent.textContent += textLetterP[indexTextContent];
             indexTextContent++;
-            setTimeout(indexTextContent, 100);
+            setTimeout(indexTextContent, 10);
         } else {
             clearInterval(timoutTextLetterContent)
 
@@ -269,9 +276,12 @@
         indexTextContent = 0; // Reset indexTextContent
         textLetterContent.textContent = ''; // Xóa nội dung hiện tại của textLetter
         clearInterval(timoutTextLetterContent);
+        index = Math.floor((Math.random() * textLetterPs.length))
+        textLetterP = textLetterPs[index]
+        console.log(textLetterP)
         timoutTextLetterContent = setInterval(() => {
             textCharLetterContent();
-        }, 100)
+        }, 20)
     }
     //end 
     /*

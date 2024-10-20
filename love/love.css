@@ -5,6 +5,11 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    overflow: hidden
+}
+
+html {
+    overflow: hidden;
 }
 
 body {
@@ -70,6 +75,7 @@ body {
 }
 
 .boxHands {
+    overflow: visible;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -752,9 +758,26 @@ body {
 }
 
 .textLetter h2 {
+    overflow: visible;
     margin-top: 20px;
     font-size: 30px;
     font-family: 'Dancing Script', cursive;
+}
+
+.textLetter .contentLetterWraper {
+    z-index: 999;
+    height: 100%;
+    font-size: 19px;
+    text-align: center;
+    padding: 0px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Dancing Script', cursive;
+    overflow-y: scroll;
+}
+
+.textLetter .contentLetterWraper::-webkit-scrollbar {
+    display: none;
 }
 
 .textLetter .contentLetter {
@@ -762,7 +785,9 @@ body {
     text-align: center;
     padding: 0px 10px;
     margin-top: 10px;
+    margin-bottom: 10px;
     font-family: 'Dancing Script', cursive;
+    overflow-y: visible;
 }
 
 .fa-xmark {
